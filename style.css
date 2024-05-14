@@ -196,4 +196,16 @@ footer {
     #h1Palavra {
         font-size: 6.4vw;
     }
+
+    @keyframes popup {
+        0% {
+            font-size:6.4vw;
+        }
+        50% {
+            font-size:6.8vw;
+        }
+        100% {
+            font-size:6.4vw;
+        }
+    }
 }
