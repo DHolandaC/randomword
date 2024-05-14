@@ -5,6 +5,7 @@ window.addEventListener("load", e => {
     numMin = 0;
 
     const gerarPalavra = () => {
+        document.getElementById("h1Palavra").classList.remove("h1PalavraAnim");
         fetch(
             "dicionario.txt"
         )
@@ -15,10 +16,10 @@ window.addEventListener("load", e => {
                 if (limiteAtivo) {
                     while ((arrayPalavras[nAleatorio].length - 1) > numMax || (arrayPalavras[nAleatorio].length - 1) < numMin) {
                         nAleatorio = Math.floor(Math.random() * 261798);
-                        console.log("Tentando denovo...");
                     }
                 }
                 document.getElementById("h1Palavra").textContent = arrayPalavras[nAleatorio];
+                document.getElementById("h1Palavra").classList.add("h1PalavraAnim");
                 document.getElementById("pLetras").textContent = (arrayPalavras[nAleatorio].length - 1) + " letras";
             });
     }
@@ -32,11 +33,13 @@ window.addEventListener("load", e => {
     document.getElementById("maisOp").addEventListener("click", e => {
         if (!mostrandoLimite) {
             document.getElementById("divLimita").style.visibility = "visible";
+            document.getElementById("divLimita").classList.add("divLimitaAnim")
             document.getElementById("maisOp").textContent = "-";
             mostrandoLimite = true;
         }
         else {
             document.getElementById("divLimita").style.visibility = "hidden";
+            document.getElementById("divLimita").classList.remove("divLimitaAnim")
             document.getElementById("maisOp").textContent = "+";
             mostrandoLimite = false;
         }
@@ -68,6 +71,7 @@ window.addEventListener("load", e => {
         }
 
         document.getElementById("divLimita").style.visibility = "hidden";
+        document.getElementById("divLimita").classList.remove("divLimitaAnim")
         document.getElementById("maisOp").textContent = "+";
         mostrandoLimite = false;
     }
